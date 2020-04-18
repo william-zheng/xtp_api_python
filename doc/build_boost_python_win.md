@@ -16,7 +16,7 @@
 python3开始使用的是Anaconda3，但是在编译boost时，提示错误，无法完成编译，所以最终选择的是python3.6.5 (32位和64位) 
 进入[官网](https://www.python.org/downloads/windows/选择python3.6.5) （可选其他）
 
-![下载Python](./image/build_boost_python_win_01.png)
+![下载Python](https://github.com/william-zheng/xtp_api_python/raw/master/doc/image/build_boost_python_win_01.png)
 
 
 ### 1.2、下载 BOOST 源码
@@ -24,7 +24,7 @@ python3开始使用的是Anaconda3，但是在编译boost时，提示错误，�
 进入[官网](http://www.boost.org/)，选择最新的版本，这里是1.66.0版本 
 下载完成之后，解压 E:\xtp\soft\boost_1_66_0_32\boost_1_66_0
 
-![下载Python](./image/build_boost_python_win_02.png)
+![下载boost](https://github.com/william-zheng/xtp_api_python/raw/master/doc/image/build_boost_python_win_02.png)
 
 ### 1.3、VS2010 下载，安装
 
@@ -32,7 +32,7 @@ python3开始使用的是Anaconda3，但是在编译boost时，提示错误，�
 
 ### 2.1、以32位为例，打开32位的编译终端
 
-![下载Python](./image/build_boost_python_win_03.png)
+![打开对应编译器](https://github.com/william-zheng/xtp_api_python/raw/master/doc/image/build_boost_python_win_03.png)
 
 ### 2.2、从终端进入boost库所在目录，
 
@@ -42,9 +42,9 @@ python3开始使用的是Anaconda3，但是在编译boost时，提示错误，�
 
 运行bootstrap.bat生产32位的bjam.exe，这个bjam将用于后续的编译过程。
 
-![下载Python](./image/build_boost_python_win_04.png)
+![输入命令](https://github.com/william-zheng/xtp_api_python/raw/master/doc/image/build_boost_python_win_04.png)
 
-![下载Python](./image/build_boost_python_win_05.png)
+![查看结果](https://github.com/william-zheng/xtp_api_python/raw/master/doc/image/build_boost_python_win_05.png)
 
 ### 2.4、进行编译，生成lib文件。
 
@@ -56,12 +56,12 @@ C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include
 ```
 
 ### 2.5、
-VS2010的版本是V100，下面代码里msvc-10.0中10.0就是我的版本号，根据不同的VS版本的情况进行更改。address-model=32表示生成的库为32位，64就表示64位，具体根据需求情况定，我们编译的是32位，继续在窗口里输入：
+VS2010的版本是**V100**，下面代码里msvc-10.0中10.0就是我的版本号，根据不同的VS版本的情况进行更改。`address-model=32`表示生成的库为32位，64就表示64位，具体根据需求情况定，我们编译的是32位，继续在窗口里输入：
 ```
 bjam --toolset=msvc-10.0 --with-python --with-thread --with-date_time --build-type=complete address-model=32
 ```
 （说明：--with-python 里面的python需要是python3版本，要求系统能找到你的python，直接在cmd里面输入python能弹出python3的具体版本信息，如果同时装32位和64位，根据需要配置对应的环境变量）
 
-![下载Python](./image/build_boost_python_win_03.png)
+![查看结果](https://github.com/william-zheng/xtp_api_python/raw/master/doc/image/build_boost_python_win_06.png)
 
 在boost目录下会生成stage文件夹，里面的lib就是C++所需的python3的lib文件。至此boost.python库编译完成。
